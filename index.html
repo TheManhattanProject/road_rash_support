@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road R*sh — Player Support &amp; Help Center</title>
+  <meta name="description" content="Official customer support, gameplay instructions, FAQ, and troubleshooting for Road R*sh on iOS and iPadOS.">
+  <style>
+    :root {
+      --bg-color: #0b0d13;
+      --card-bg: #151923;
+      --card-hover: #1c2230;
+      --border-color: #262e42;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --success-badge: #10b981;
+      --badge-bg: rgba(16, 185, 129, 0.12);
+      --warning-badge: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.12);
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-color: #f8fafc;
+        --card-bg: #ffffff;
+        --card-hover: #f1f5f9;
+        --border-color: #e2e8f0;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --accent: #0284c7;
+        --accent-hover: #0369a1;
+        --accent-glow: rgba(2, 132, 199, 0.12);
+        --badge-bg: #d1fae5;
+        --success-badge: #059669;
+        --warning-bg: #fef3c7;
+        --warning-badge: #d97706;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.65;
+      padding: 2.5rem 1.25rem;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5rem;
+    }
+
+    .header-tag {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    h1 {
+      font-size: 2.35rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .meta {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 0.75rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.25rem 0 0.5rem 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.32rem 0.75rem;
+      font-size: 0.825rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      background-color: var(--badge-bg);
+      color: var(--success-badge);
+      border: 1px solid currentColor;
+    }
+
+    .badge.warning {
+      background-color: var(--warning-bg);
+      color: var(--warning-badge);
+    }
+
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.15s ease-in-out;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #0b0d13;
+      border-color: var(--accent);
+    }
+
+    @media (prefers-color-scheme: light) {
+      .btn-primary {
+        color: #ffffff;
+      }
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--card-hover);
+      border-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.75rem 0;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.35rem 1.5rem;
+      transition: border-color 0.15s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-color);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .card-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .highlight-box {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+
+    .highlight-box h3 {
+      font-size: 1.15rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-top: 2.75rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 1.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul, ol {
+      margin: 0.75rem 0 1.25rem 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text-main);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    th, td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Accordion FAQ */
+    details {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: background-color 0.15s ease;
+    }
+
+    details[open] {
+      background-color: var(--card-bg);
+      border-color: var(--border-color);
+    }
+
+    summary {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      color: var(--text-main);
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--accent);
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      padding: 0.25rem 1.25rem 1.25rem 1.25rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+    }
+
+    .faq-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .copy-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: var(--accent);
+      cursor: pointer;
+      margin: 0.35rem 0;
+      transition: all 0.15s ease;
+    }
+
+    .copy-pill:hover {
+      background-color: rgba(56, 189, 248, 0.2);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #10b981;
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.2s ease-in-out;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88em;
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 0.15rem 0.35rem;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-tag">Customer Support &amp; Knowledge Base</div>
+      <h1>Road R*sh Help Center</h1>
+      <p class="subtitle">Official player assistance, gameplay guides, bug reporting, and troubleshooting.</p>
+      
+      <div class="meta">
+        <span><strong>Application:</strong> Road R*sh (iOS / iPadOS)</span>
+        <span><strong>Bundle ID:</strong> <code>space.shortsqueeze.road-rash</code></span>
+        <span><strong>Developer:</strong> Shortsqueeze Private Limited / Sarthak Bansal</span>
+        <span><strong>Status:</strong> Active Support</span>
+      </div>
+
+      <div class="badges">
+        <span class="badge">&#10003; 100% Offline Single-Player</span>
+        <span class="badge">&#10003; Zero Account Creation Needed</span>
+        <span class="badge">&#10003; No Ads or Paywalls</span>
+        <span class="badge">&#10003; Fast Email Response (24-48h)</span>
+      </div>
+
+      <div class="action-bar">
+        <a href="mailto:support@shortsqueeze.space?subject=[Road%20Rash%20Support]%20Help%20Request&body=Hello%20Support%20Team,%0A%0ADevice%20Model%20(e.g.%20iPhone%2015%20Pro):%20%0AiOS%20Version:%20%0AIssue%20/%20Question:%20%0A%0A" class="btn btn-primary">
+          ✉️ Email Support
+        </a>
+        <a href="#faq" class="btn btn-secondary">
+          ❓ Browse FAQ
+        </a>
+        <a href="#gameplay" class="btn btn-secondary">
+          🎮 Controls &amp; Combat
+        </a>
+        <a href="https://themanhattanproject.github.io/road_rash_privacy_policy/" target="_blank" rel="noopener" class="btn btn-secondary">
+          🛡️ Privacy Policy
+        </a>
+      </div>
+    </header>
+
+    <!-- Support channels -->
+    <div class="grid-2">
+      <div class="card">
+        <h3>✉️ Direct Customer Service</h3>
+        <p>Experiencing an issue, unexpected crash, or have feedback? Reach out directly to our engineering and support team.</p>
+        <div class="copy-pill" onclick="copyEmail('support@shortsqueeze.space')" title="Click to copy email address">
+          support@shortsqueeze.space 📋
+        </div>
+        <div style="margin-top: 0.5rem;">
+          <a class="card-link" href="mailto:support@shortsqueeze.space">Open in Mail client &rarr;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🛡️ Privacy &amp; Data Rights</h3>
+        <p>Road R*sh does not collect, track, transmit, or sell personal data. Review our official privacy terms and Apple App Store labels.</p>
+        <div class="copy-pill" onclick="copyEmail('privacy@shortsqueeze.space')" title="Click to copy privacy address">
+          privacy@shortsqueeze.space 📋
+        </div>
+        <div style="margin-top: 0.5rem;">
+          <a class="card-link" href="https://themanhattanproject.github.io/road_rash_privacy_policy/" target="_blank" rel="noopener">Read Privacy Policy &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Highlights -->
+    <div class="highlight-box">
+      <h3>Quick Support Note</h3>
+      <p>
+        <strong>Road R*sh is an offline arcade motorcycle combat game.</strong> Because the application does not connect to external servers or collect user accounts, all save data (unlocked districts, cash, bike upgrades, and celebrations) resides exclusively on your local device.
+      </p>
+    </div>
+
+    <!-- Gameplay & Controls -->
+    <section id="gameplay">
+      <h2>🎮 How to Play: Controls &amp; Mechanics</h2>
+      <p>Mastering arcade motorcycle combat in Road R*sh requires sharp reflexes and quick timing:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Touch Controls</th>
+            <th>Mechanic Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Throttle</strong></td>
+            <td>Automatic</td>
+            <td>Your bike accelerates automatically up to top cruising speed.</td>
+          </tr>
+          <tr>
+            <td><strong>Steering</strong></td>
+            <td>Left / Right Buttons or Road Drag</td>
+            <td>Hold LEFT/RIGHT buttons or drag the roadway laterally to navigate lanes and avoid oncoming traffic.</td>
+          </tr>
+          <tr>
+            <td><strong>Brake</strong></td>
+            <td>Tap / Hold <code>BRAKE</code></td>
+            <td>Instantly decelerates your motorcycle. <strong>Braking overrides Boost immediately</strong> when tapped.</td>
+          </tr>
+          <tr>
+            <td><strong>Nitro Boost</strong></td>
+            <td>Tap <code>BOOST</code></td>
+            <td>Provides rapid burst acceleration to outpace pursuers and cross intersections before lights change.</td>
+          </tr>
+          <tr>
+            <td><strong>Melee Attack</strong></td>
+            <td>Tap <code>ATTACK</code></td>
+            <td>
+              Swings your equipped weapon (Baton, Chain, Folding Chair, or Flamethrower). Auto-targets the nearest rival. When flanked on both sides, consecutive hits alternate left and right.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Taunt / Celebrations</strong></td>
+            <td>Tap <code>TAUNT</code></td>
+            <td>Executes your equipped gesture (such as the SIUU victory celebration) while facing nearby rivals.</td>
+          </tr>
+          <tr>
+            <td><strong>Screen Recording</strong></td>
+            <td>Tap <code>REC</code></td>
+            <td>Uses Apple ReplayKit to record gameplay and internal audio to local storage without mic or camera access.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Weapons Arsenal</h3>
+      <ul>
+        <li><strong>Baton:</strong> Quick recovery, ideal for rapid consecutive strikes against tightly clustered opponents.</li>
+        <li><strong>Chain:</strong> Extended melee reach to clip riders before they close in.</li>
+        <li><strong>Folding Chair:</strong> High impact heavy hit that destabilizes rival riders quickly.</li>
+        <li><strong>Flamethrower:</strong> Devastating burst damage that consumes fuel. Replenish fuel with on-track fuel pickups.</li>
+      </ul>
+
+      <h3>Hazards &amp; Road Encounters</h3>
+      <ul>
+        <li><strong>Cross-Traffic Intersections:</strong> Watch amber warnings and traffic signals. Vehicles cross laterally; plan your lane changes accordingly.</li>
+        <li><strong>Police Pursuits:</strong> Patrols engage in announced pressure waves. Use nitro boosts to break away during recovery intervals.</li>
+        <li><strong>Bank Getaway Incident:</strong> High-speed oncoming traffic scenario with advance warning and an escape lane.</li>
+        <li><strong>Crashes &amp; Recovery:</strong> Severe collisions trigger an arcade recovery cycle: slide, stand, lift bike, and remount. The clock keeps running!</li>
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>❓ Frequently Asked Questions (FAQ)</h2>
+
+      <details open>
+        <summary>How is my game progress saved?</summary>
+        <div class="faq-answer">
+          <p>All game progress, earned cash, bike upgrades, unlocked districts, and custom celebrations are saved locally in your device's isolated application storage (using Apple's standard <code>UserDefaults</code> system). No cloud account is required.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I transfer my progress to another iPhone or iPad?</summary>
+        <div class="faq-answer">
+          <p>Yes. When you migrate your device using standard Apple Device Transfer (iOS Quick Start) or restore from an encrypted iCloud/Finder backup, your local Road R*sh save data transfers seamlessly with your device backup.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Are there any in-app purchases (IAP) or subscription fees?</summary>
+        <div class="faq-answer">
+          <p>No. Road R*sh contains zero microtransactions, loot boxes, or recurring subscriptions. All bikes, upgrades, weapons, and districts are unlocked solely through gameplay achievements and podium finishes.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Does Road R*sh display advertisements?</summary>
+        <div class="faq-answer">
+          <p>No. There are no banner ads, interstitial pop-ups, or rewarded video networks embedded in the game. It is a clean, distraction-free arcade racing experience.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How does the ReplayKit screen recording work?</summary>
+        <div class="faq-answer">
+          <p>When you tap the Record button, iOS prompts you to allow screen recording. ReplayKit records only the rendered game graphics and audio. The microphone and camera remain completely disabled. Recorded clips are saved temporarily in the app cache and can be exported to your Photos library or shared via the native iOS share sheet.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do race highlight cards work?</summary>
+        <div class="faq-answer">
+          <p>At the end of a race, or following dramatic knockouts or celebrations, the game generates an export-ready 1080&times;1350 still highlight card. Tapping share opens the native iOS Share Sheet so you can save or send the image. Nothing is uploaded or posted automatically.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>The game audio is silent. How do I fix this?</summary>
+        <div class="faq-answer">
+          <p>Check the hardware Ring/Silent switch on the side of your iPhone (or the Silent Mode control in Control Center / Action Button). In addition, ensure your in-game SFX and Engine synthesis volume sliders are turned up in the Settings / Pause menu.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>What are the minimum system requirements?</summary>
+        <div class="faq-answer">
+          <p>Road R*sh is optimized for iOS 16.0 or later on iPhone and iPad, and Apple Silicon Macs running macOS 13.0 or later.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I reset my save game data?</summary>
+        <div class="faq-answer">
+          <p>Because all save data is stored in the application sandbox, uninstalling the app from your device and reinstalling it from the App Store will completely reset all local game data.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- Troubleshooting & Bug Reports -->
+    <section id="troubleshooting">
+      <h2>🛠️ Troubleshooting &amp; Bug Reporting</h2>
+      <p>If you encounter an unexpected issue, please review these quick checks:</p>
+      
+      <ul>
+        <li><strong>Crash on Startup:</strong> Restart your iOS device and confirm you have at least 500 MB of free storage. Ensure your iOS version is up to date.</li>
+        <li><strong>Steering Responsiveness:</strong> In the pause menu, you can toggle between on-screen button controls and roadway drag steering according to your preference.</li>
+        <li><strong>Frame Drops or Heat:</strong> Close background resource-heavy apps. The game targets a smooth 60 FPS across supported devices.</li>
+      </ul>
+
+      <div class="contact-card">
+        <h3>Submit a Support Ticket or Bug Report</h3>
+        <p>When reporting an issue, please email <a href="mailto:support@shortsqueeze.space"><strong>support@shortsqueeze.space</strong></a> with the following details so our team can resolve it quickly:</p>
+        
+        <ol>
+          <li><strong>Device Model:</strong> (e.g., iPhone 15 Pro, iPad Air 5th Gen)</li>
+          <li><strong>iOS Version:</strong> (e.g., iOS 17.5.1, iOS 18.0)</li>
+          <li><strong>Game District / Race:</strong> (e.g., District 1, District 2, Garage menu)</li>
+          <li><strong>Description:</strong> What happened, and what did you expect to happen?</li>
+          <li><strong>Steps to Reproduce:</strong> What actions led up to the issue?</li>
+          <li><strong>Attachments:</strong> Any screenshots or ReplayKit video clips (optional).</li>
+        </ol>
+
+        <div style="margin-top: 1.25rem;">
+          <a href="mailto:support@shortsqueeze.space?subject=[Road%20Rash%20Bug%20Report]%20Issue%20Summary&body=1.%20Device%20Model:%20%0A2.%20iOS%20Version:%20%0A3.%20District%20/%20Screen:%20%0A4.%20Issue%20Description:%20%0A5.%20Steps%20to%20Reproduce:%20%0A" class="btn btn-primary">
+            Submit Bug Report via Email
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Store Connect Meta -->
+    <section>
+      <h2>📋 App Store Connect Submission Details</h2>
+      <p>Reference information for App Store listings and regulatory review:</p>
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>App Store Support URL</strong></td>
+            <td><code>https://themanhattanproject.github.io/road_rash_support/</code></td>
+          </tr>
+          <tr>
+            <td><strong>App Store Privacy Policy URL</strong></td>
+            <td><a href="https://themanhattanproject.github.io/road_rash_privacy_policy/" target="_blank" rel="noopener"><code>https://themanhattanproject.github.io/road_rash_privacy_policy/</code></a></td>
+          </tr>
+          <tr>
+            <td><strong>Primary Support Email</strong></td>
+            <td><code>support@shortsqueeze.space</code></td>
+          </tr>
+          <tr>
+            <td><strong>Developer Entity</strong></td>
+            <td>Shortsqueeze Private Limited / Sarthak Bansal</td>
+          </tr>
+          <tr>
+            <td><strong>Bundle Identifier</strong></td>
+            <td><code>space.shortsqueeze.road-rash</code></td>
+          </tr>
+          <tr>
+            <td><strong>Content Rating / Age Category</strong></td>
+            <td>12+ (Arcade Combat, Fictional Violence)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Legal Disclaimer -->
+    <section style="margin-top: 2rem; font-size: 0.875rem; color: var(--text-muted);">
+      <p>
+        <strong>Notice &amp; Disclaimer:</strong> Road R*sh is an original tribute work created independently by Shortsqueeze Private Limited. It is not affiliated with, sponsored by, or endorsed by Take-Two Interactive, Rockstar Games, Electronic Arts, or any other trademark owners. All characters, names, and parodies are fictional.
+      </p>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <a href="#gameplay">Controls</a>
+        <a href="#faq">FAQ</a>
+        <a href="#troubleshooting">Troubleshooting</a>
+        <a href="https://themanhattanproject.github.io/road_rash_privacy_policy/" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="mailto:support@shortsqueeze.space">Contact</a>
+      </div>
+      <p>&copy; 2026 Shortsqueeze Private Limited. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast">Email address copied to clipboard!</div>
+
+  <script>
+    function copyEmail(email) {
+      navigator.clipboard.writeText(email).then(() => {
+        const toast = document.getElementById('toast');
+        toast.textContent = email + ' copied to clipboard!';
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      }).catch(() => {
+        window.location.href = 'mailto:' + email;
+      });
+    }
+  </script>
+</body>
+</html>
